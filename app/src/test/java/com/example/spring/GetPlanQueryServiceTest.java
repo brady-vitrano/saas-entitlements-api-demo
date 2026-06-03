@@ -12,8 +12,6 @@ public class GetPlanQueryServiceTest {
 
     @Test
     void get_plan_service_class_loads() {
-        // === GEN_REGION_START: test-body ===
         assertNotNull(GetPlanQueryService.class, "GetPlanQueryService should be loadable");
-        // === GEN_REGION_END: test-body ===
     }
 }

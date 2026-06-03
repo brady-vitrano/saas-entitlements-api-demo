@@ -18,7 +18,6 @@ public class GetFeatureQueryService {
 
     @Transactional(readOnly = true)
     public Feature handle(GetFeatureQueryRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for Query GetFeature.
         // intent: Return one registered feature by feature key.
         // reads: EntitlementsRepository.findFeature via `feature`.
@@ -27,6 +26,5 @@ public class GetFeatureQueryService {
             throw new NotFoundException("Feature not found.");
         }
         return row;
-        // === GEN_REGION_END: service-body ===
     }
 }

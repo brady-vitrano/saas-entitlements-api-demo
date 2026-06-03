@@ -12,8 +12,6 @@ public class ListSubscriptionUsageQueryServiceTest {
 
     @Test
     void list_subscription_usage_service_class_loads() {
-        // === GEN_REGION_START: test-body ===
         assertNotNull(ListSubscriptionUsageQueryService.class, "ListSubscriptionUsageQueryService should be loadable");
-        // === GEN_REGION_END: test-body ===
     }
 }

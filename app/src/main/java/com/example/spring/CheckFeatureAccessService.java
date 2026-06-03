@@ -22,7 +22,6 @@ public class CheckFeatureAccessService {
 
     @Transactional
     public PolicyCheckResult handle(CheckFeatureAccessRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for CheckFeatureAccess.
         // intent: Record and return an entitlement authorization decision for a feature request.
         // requires: EntitlementsRepository
@@ -32,6 +31,5 @@ public class CheckFeatureAccessService {
         PolicyCheckResult saved = this.entitlementsRepository.savePolicyCheckResult(value);
         this.springEventPublisher.publishEvent(new EntitlementChecked(saved.accountId(), saved.allowed(), saved.decisionId(), saved.evaluatedAt(), saved.featureKey(), saved.reason(), saved.requestedQuantity(), saved.subscriptionId(), saved.tenantId()));
         return saved;
-        // === GEN_REGION_END: service-body ===
     }
 }

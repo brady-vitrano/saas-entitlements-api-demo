@@ -18,11 +18,9 @@ public class ListAccountSubscriptionsQueryService {
 
     @Transactional(readOnly = true)
     public java.util.List<Subscription> handle(ListAccountSubscriptionsQueryRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for Query ListAccountSubscriptions.
         // intent: List subscriptions for an account.
         // reads: EntitlementsRepository.listSubscriptionsByAccount via `subscriptions`.
         return this.entitlementsRepository.listSubscriptionsByAccount(request.accountId());
-        // === GEN_REGION_END: service-body ===
     }
 }

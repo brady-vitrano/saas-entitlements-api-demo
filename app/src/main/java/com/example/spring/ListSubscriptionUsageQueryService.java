@@ -18,11 +18,9 @@ public class ListSubscriptionUsageQueryService {
 
     @Transactional(readOnly = true)
     public java.util.List<UsageMeter> handle(ListSubscriptionUsageQueryRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for Query ListSubscriptionUsage.
         // intent: List usage records for one subscription.
         // reads: EntitlementsRepository.listUsageBySubscription via `usageRecords`.
         return this.entitlementsRepository.listUsageBySubscription(request.subscriptionId());
-        // === GEN_REGION_END: service-body ===
     }
 }

@@ -22,7 +22,6 @@ public class AddFeatureToPlanService {
 
     @Transactional
     public Entitlement handle(AddFeatureToPlanRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for AddFeatureToPlan.
         // intent: Grant a feature allowance to a plan.
         // requires: EntitlementsRepository
@@ -32,6 +31,5 @@ public class AddFeatureToPlanService {
         Entitlement saved = this.entitlementsRepository.saveEntitlement(value);
         this.springEventPublisher.publishEvent(new EntitlementGranted(saved.allowance(), saved.effectiveAt(), saved.enforcementMode(), saved.entitlementId(), saved.featureKey(), saved.planId(), saved.tenantId(), saved.unit()));
         return saved;
-        // === GEN_REGION_END: service-body ===
     }
 }

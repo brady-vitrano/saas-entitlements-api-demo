@@ -22,7 +22,6 @@ public class SetAccountOverrideService {
 
     @Transactional
     public AccountOverride handle(SetAccountOverrideRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for SetAccountOverride.
         // intent: Create an account-specific entitlement override for support or sales operations.
         // requires: EntitlementsRepository
@@ -32,6 +31,5 @@ public class SetAccountOverrideService {
         AccountOverride saved = this.entitlementsRepository.saveAccountOverride(value);
         this.springEventPublisher.publishEvent(new AccountOverrideSet(saved.accountId(), saved.allowance(), saved.createdAt(), saved.featureKey(), saved.overrideId(), saved.overrideType(), saved.tenantId()));
         return saved;
-        // === GEN_REGION_END: service-body ===
     }
 }

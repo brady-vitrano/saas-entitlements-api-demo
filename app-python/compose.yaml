@@ -1,0 +1,18 @@
+name: saas-entitlements-fastapi
+
+services:
+  app:
+    build:
+      context: .
+    image: ${APP_IMAGE:-saas-entitlements/fastapi:local}
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    environment:
+      SQLITE_DB_PATH: /data/app.db
+    volumes:
+      - entitlements-data:/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  entitlements-data:

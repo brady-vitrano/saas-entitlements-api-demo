@@ -19,13 +19,11 @@ public class AppendAuditEventService {
 
     @Transactional
     public AuditEvent handle(AppendAuditEventRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for AppendAuditEvent.
         // intent: Append an immutable audit event for a subscription or entitlement decision.
         // requires: EntitlementsRepository
         // return: AuditEvent (entity); spec-driven body constructs from request inputs + persists via EntitlementsRepository.saveAuditEvent.
         AuditEvent value = new AuditEvent(request.tenantId(), request.auditEventId(), request.accountId(), request.actorId(), request.eventType(), request.subjectId(), request.message(), request.occurredAt());
         return this.entitlementsRepository.saveAuditEvent(value);
-        // === GEN_REGION_END: service-body ===
     }
 }

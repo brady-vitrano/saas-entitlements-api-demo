@@ -19,13 +19,11 @@ public class CreatePlanService {
 
     @Transactional
     public Plan handle(CreatePlanRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for CreatePlan.
         // intent: Create a subscription plan that can later grant feature entitlements.
         // requires: EntitlementsRepository
         // return: Plan (entity); spec-driven body constructs from request inputs + persists via EntitlementsRepository.savePlan.
         Plan value = new Plan(request.tenantId(), request.planId(), request.planCode(), request.displayName(), request.billingInterval(), request.status(), request.createdAt());
         return this.entitlementsRepository.savePlan(value);
-        // === GEN_REGION_END: service-body ===
     }
 }

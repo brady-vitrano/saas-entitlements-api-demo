@@ -45,11 +45,36 @@
     }
   },
   "generatedApplication": {
-    "stack": "Java Spring Boot REST API",
-    "fileCount": 88,
-    "javaMainFileCount": 68,
-    "javaTestFileCount": 15,
-    "javaLineCount": 12715,
+    "stacks": [
+      {
+        "name": "Java Spring Boot REST API",
+        "path": "app/",
+        "fileCount": 88,
+        "mainFileCount": 68,
+        "testFileCount": 15,
+        "lineCount": 12715,
+        "routes": 15,
+        "generationRunSeconds": 15
+      },
+      {
+        "name": "Python FastAPI REST API",
+        "path": "app-python/",
+        "fileCount": 78,
+        "pythonFileCount": 74,
+        "lineCount": 10515,
+        "routes": 15,
+        "generationRunSeconds": 35,
+        "generationWindow": {
+          "approximate": false,
+          "startTimestampUtc": "2026-06-03T14:46:32Z",
+          "startTimestampLocal": "2026-06-03T09:46:32-0500",
+          "endTimestampUtc": "2026-06-03T14:47:07Z",
+          "endTimestampLocal": "2026-06-03T09:47:07-0500",
+          "elapsedSeconds": 35
+        },
+        "preflightNote": "FastAPI preflight reported unsupported role and scope guard capabilities, so the run was submitted with the documented --skip-doctor flag. Docker runtime proof and endpoint parity passed."
+      }
+    ],
     "routes": 15
   },
   "verification": {
@@ -58,15 +83,25 @@
       "APP_PORT=18080 docker compose config",
       "APP_PORT=18080 docker compose build --no-cache",
       "APP_PORT=18080 docker compose up -d --force-recreate",
+      "APP_PORT=18081 docker compose config",
+      "APP_PORT=18081 docker compose build --no-cache",
+      "APP_PORT=18081 docker compose up -d --force-recreate",
       "curl http://127.0.0.1:18080/healthz",
+      "curl http://127.0.0.1:18081/healthz",
       "bash evidence-equivalent endpoint proof script against Docker-started service"
     ],
     "results": {
       "composeConfigExitCode": 0,
       "dockerBuildWithTestsExitCode": 0,
       "dockerUpExitCode": 0,
+      "pythonComposeConfigExitCode": 0,
+      "pythonDockerBuildWithTestsExitCode": 0,
+      "pythonDockerUpExitCode": 0,
       "healthStatus": "UP",
+      "pythonHealthStatus": "UP",
       "endpointProofExitCode": 0,
+      "pythonEndpointProofExitCode": 0,
+      "payloadParityExitCode": 0,
       "endpointStatuses": {
         "POST /api/plans": 201,
         "POST /api/features": 201,
@@ -80,30 +115,43 @@
         "GET /api/subscriptions/{subscriptionId}/usage": 200
       }
     },
+    "parity": {
+      "statusParity": true,
+      "payloadParity": true,
+      "canonicalJsonPayloadsCompared": 10,
+      "completedTimestampUtc": "2026-06-03T14:50:35Z",
+      "completedTimestampLocal": "2026-06-03T09:50:35-0500"
+    },
     "evidencePaths": [
       "evidence/compose-config.txt",
       "evidence/docker-endpoint-proof.txt",
       "evidence/health.json",
-      "evidence/endpoints/"
+      "evidence/endpoints/",
+      "evidence/python-compose-config.txt",
+      "evidence/python-endpoint-proof.txt",
+      "evidence/python-health.json",
+      "evidence/parity/"
     ]
   },
   "endToEndTaskWallClock": {
     "approximate": true,
     "startTimestampUtc": "2026-06-03T03:35:43Z",
     "startTimestampLocal": "2026-06-02T22:35:43-0500",
-    "endTimestampUtc": "2026-06-03T03:50:03Z",
-    "endTimestampLocal": "2026-06-02T22:50:03-0500",
-    "elapsedSecondsApprox": 860,
+    "endTimestampUtc": "2026-06-03T14:51:07Z",
+    "endTimestampLocal": "2026-06-03T09:51:07-0500",
+    "elapsedSecondsApprox": 40524,
     "phasesIncluded": [
       "required documentation review",
       "private spec authoring",
       "spec validation and compile preview",
-      "generation run",
+      "Spring generation run",
+      "FastAPI generation run",
       "standalone repo assembly",
       "public no-branding cleanup",
-      "Docker build with tests",
-      "Docker service startup",
-      "Docker-started endpoint proof",
+      "Docker builds with tests",
+      "Docker service startup for both apps",
+      "Docker-started endpoint proof for both apps",
+      "canonical JSON parity comparison",
       "README and metrics handoff"
     ],
     "note": "Start time is the earliest reliable private spec artifact timestamp, not the first assistant message timestamp."

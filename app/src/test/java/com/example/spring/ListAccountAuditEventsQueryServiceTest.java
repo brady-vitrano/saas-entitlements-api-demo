@@ -12,8 +12,6 @@ public class ListAccountAuditEventsQueryServiceTest {
 
     @Test
     void list_account_audit_events_service_class_loads() {
-        // === GEN_REGION_START: test-body ===
         assertNotNull(ListAccountAuditEventsQueryService.class, "ListAccountAuditEventsQueryService should be loadable");
-        // === GEN_REGION_END: test-body ===
     }
 }

@@ -1,0 +1,29 @@
+name: saas-entitlements-fastapi
+services:
+  app:
+    build:
+      context: /Users/brady/Projects/saas-entitlements-api-demo/app-python
+      dockerfile: Dockerfile
+    environment:
+      SQLITE_DB_PATH: /data/app.db
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    image: saas-entitlements/fastapi:local
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8000
+        published: "18081"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: entitlements-data
+        target: /data
+        volume: {}
+networks:
+  default:
+    name: saas-entitlements-fastapi_default
+volumes:
+  entitlements-data:
+    name: saas-entitlements-fastapi_entitlements-data

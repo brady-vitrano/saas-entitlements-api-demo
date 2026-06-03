@@ -1,0 +1,20 @@
+add-entitlement: payload match
+add-entitlement: status match 201
+check-access: payload match
+check-access: status match 200
+create-plan: payload match
+create-plan: status match 201
+get-plan: payload match
+get-plan: status match 200
+list-entitlements: payload match
+list-entitlements: status match 200
+list-subscriptions: payload match
+list-subscriptions: status match 200
+list-usage: payload match
+list-usage: status match 200
+record-usage: payload match
+record-usage: status match 201
+register-feature: payload match
+register-feature: status match 201
+start-subscription: payload match
+start-subscription: status match 201

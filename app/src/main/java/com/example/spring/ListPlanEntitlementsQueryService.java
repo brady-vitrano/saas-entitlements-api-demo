@@ -18,11 +18,9 @@ public class ListPlanEntitlementsQueryService {
 
     @Transactional(readOnly = true)
     public java.util.List<Entitlement> handle(ListPlanEntitlementsQueryRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for Query ListPlanEntitlements.
         // intent: List entitlements granted by a plan.
         // reads: EntitlementsRepository.listEntitlementsByPlan via `entitlements`.
         return this.entitlementsRepository.listEntitlementsByPlan(request.planId());
-        // === GEN_REGION_END: service-body ===
     }
 }

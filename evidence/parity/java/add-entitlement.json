@@ -1,0 +1,1 @@
+{"tenantId":"tenant-a","entitlementId":"ent-api-calls-pro","planId":"plan-pro","featureKey":"api-calls","allowance":10000,"unit":"call","enforcementMode":"hard_limit","effectiveAt":"2026-06-03T03:46:00Z"}

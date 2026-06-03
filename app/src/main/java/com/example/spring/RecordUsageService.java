@@ -22,7 +22,6 @@ public class RecordUsageService {
 
     @Transactional
     public UsageMeter handle(RecordUsageRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for RecordUsage.
         // intent: Record metered usage for a subscription feature during a billing period.
         // requires: EntitlementsRepository
@@ -32,6 +31,5 @@ public class RecordUsageService {
         UsageMeter saved = this.entitlementsRepository.saveUsageMeter(value);
         this.springEventPublisher.publishEvent(new UsageRecorded(saved.accountId(), saved.featureKey(), saved.quantity(), saved.recordedAt(), saved.subscriptionId(), saved.tenantId(), saved.usageId()));
         return saved;
-        // === GEN_REGION_END: service-body ===
     }
 }

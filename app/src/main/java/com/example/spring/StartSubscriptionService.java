@@ -22,7 +22,6 @@ public class StartSubscriptionService {
 
     @Transactional
     public Subscription handle(StartSubscriptionRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for StartSubscription.
         // intent: Start a subscription for an account on a plan with a seat limit.
         // requires: EntitlementsRepository
@@ -32,6 +31,5 @@ public class StartSubscriptionService {
         Subscription saved = this.entitlementsRepository.saveSubscription(value);
         this.springEventPublisher.publishEvent(new SubscriptionStarted(saved.accountId(), saved.planId(), saved.seatLimit(), saved.startedAt(), saved.subscriptionId(), saved.tenantId()));
         return saved;
-        // === GEN_REGION_END: service-body ===
     }
 }

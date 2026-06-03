@@ -18,11 +18,9 @@ public class ListAccountAuditEventsQueryService {
 
     @Transactional(readOnly = true)
     public java.util.List<AuditEvent> handle(ListAccountAuditEventsQueryRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for Query ListAccountAuditEvents.
         // intent: List audit events for an account.
         // reads: EntitlementsRepository.listAuditEventsByAccount via `auditEvents`.
         return this.entitlementsRepository.listAuditEventsByAccount(request.accountId());
-        // === GEN_REGION_END: service-body ===
     }
 }

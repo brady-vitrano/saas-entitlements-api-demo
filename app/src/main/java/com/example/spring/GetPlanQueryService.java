@@ -18,7 +18,6 @@ public class GetPlanQueryService {
 
     @Transactional(readOnly = true)
     public Plan handle(GetPlanQueryRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for Query GetPlan.
         // intent: Return one subscription plan by id.
         // reads: EntitlementsRepository.findPlan via `plan`.
@@ -27,6 +26,5 @@ public class GetPlanQueryService {
             throw new NotFoundException("Plan not found.");
         }
         return row;
-        // === GEN_REGION_END: service-body ===
     }
 }

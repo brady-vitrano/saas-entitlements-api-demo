@@ -18,11 +18,9 @@ public class ListAccountOverridesQueryService {
 
     @Transactional(readOnly = true)
     public java.util.List<AccountOverride> handle(ListAccountOverridesQueryRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for Query ListAccountOverrides.
         // intent: List account-specific entitlement overrides.
         // reads: EntitlementsRepository.listOverridesByAccount via `overrides`.
         return this.entitlementsRepository.listOverridesByAccount(request.accountId());
-        // === GEN_REGION_END: service-body ===
     }
 }

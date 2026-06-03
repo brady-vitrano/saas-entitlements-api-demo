@@ -19,13 +19,11 @@ public class RegisterFeatureService {
 
     @Transactional
     public Feature handle(RegisterFeatureRequest request) {
-        // === GEN_REGION_START: service-body ===
         // spec-driven body for RegisterFeature.
         // intent: Register a feature key that can be attached to plans and checked at runtime.
         // requires: EntitlementsRepository
         // return: Feature (entity); spec-driven body constructs from request inputs + persists via EntitlementsRepository.saveFeature.
         Feature value = new Feature(request.tenantId(), request.featureKey(), request.displayName(), request.valueType(), request.defaultUnit(), request.active());
         return this.entitlementsRepository.saveFeature(value);
-        // === GEN_REGION_END: service-body ===
     }
 }

@@ -12,8 +12,6 @@ public class ListAccountOverridesQueryServiceTest {
 
     @Test
     void list_account_overrides_service_class_loads() {
-        // === GEN_REGION_START: test-body ===
         assertNotNull(ListAccountOverridesQueryService.class, "ListAccountOverridesQueryService should be loadable");
-        // === GEN_REGION_END: test-body ===
     }
 }
