@@ -102,3 +102,17 @@ The final endpoint proof returned `0` and all ten API calls returned 2xx statuse
 ## Notes
 
 The generation run converged, but reported `0 / 8` prose command rules translated. The generated code still includes structured persistence, REST routes, events, tests, and authorization guard checks derived from typed spec metadata.
+
+## Disclaimer
+
+This repository is a demonstration only. It is illustrative of generation output and runtime verification; it is not production software and is not maintained, supported, or warrantied.
+
+- **Authentication is for local demo use only.** HTTP Basic with in-memory users and the literal password `secret` is wired in `app/src/main/java/com/example/spring/SecurityConfig.java`. Do not deploy this configuration anywhere reachable from a public network.
+- **Persistence is in-memory.** All state is lost when the container stops. The SQLite volume declared in `app/compose.yaml` is reserved but unused by the in-memory adapter shipped here.
+- **No SLAs, no support.** The author makes no representations about correctness, security, or fitness for any purpose. Use at your own risk.
+
+## License
+
+Copyright © 2026 Brady Vitrano. All rights reserved.
+
+No license is granted to use, copy, modify, distribute, or create derivative works of this code. The repository is published for viewing only; for any other use, contact the author.
