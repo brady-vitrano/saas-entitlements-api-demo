@@ -1,0 +1,10 @@
+create-plan 201
+register-feature 201
+add-entitlement 201
+start-subscription 201
+record-usage 201
+check-access 200
+get-plan 200
+list-entitlements 200
+list-subscriptions 200
+list-usage 200

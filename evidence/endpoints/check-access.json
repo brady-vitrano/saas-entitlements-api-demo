@@ -1,0 +1,1 @@
+{"tenantId":"tenant-a","decisionId":"decision-100","accountId":"tenant-a","subscriptionId":"sub-100","featureKey":"api-calls","requestedQuantity":1,"allowed":true,"reason":"within plan allowance","evaluatedAt":"2026-06-03T03:49:00Z"}

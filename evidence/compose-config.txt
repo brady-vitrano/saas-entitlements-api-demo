@@ -1,0 +1,30 @@
+name: saas-entitlements-api
+services:
+  app:
+    build:
+      context: /Users/brady/Projects/saas-entitlements-api-demo/app
+      dockerfile: Dockerfile
+    environment:
+      SERVER_PORT: "8080"
+      SQLITE_DB_PATH: /data/app.db
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    image: saas-entitlements/spring:local
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "18080"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: entitlements-data
+        target: /data
+        volume: {}
+networks:
+  default:
+    name: saas-entitlements-api_default
+volumes:
+  entitlements-data:
+    name: saas-entitlements-api_entitlements-data

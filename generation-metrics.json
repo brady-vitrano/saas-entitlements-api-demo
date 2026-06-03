@@ -1,0 +1,111 @@
+{
+  "project": "SaaS Subscription Entitlements API",
+  "generatedRepository": "/Users/brady/Projects/saas-entitlements-api-demo",
+  "timeZone": "America/Chicago",
+  "sourceSpec": {
+    "publishedInRepository": false,
+    "reasonNotPublished": "Raw private generation inputs contain internal schema identifiers; the public repository publishes generated application code and neutral evidence only.",
+    "fileCount": 37,
+    "totalBytes": 25179
+  },
+  "generation": {
+    "commandsIncluded": [
+      "validate-set --dir <private-spec-dir>",
+      "compile-preview --spec-dir <private-spec-dir> --stack java-spring",
+      "run --spec-ref <private-spec-dir> --stack java-spring --output-root <private-output-root> --watch"
+    ],
+    "checkAndRunWindow": {
+      "approximate": true,
+      "startTimestampUtc": "2026-06-03T03:40:07Z",
+      "startTimestampLocal": "2026-06-02T22:40:07-0500",
+      "endTimestampUtc": "2026-06-03T03:40:53Z",
+      "endTimestampLocal": "2026-06-02T22:40:53-0500",
+      "elapsedSecondsApprox": 46,
+      "note": "Start time is the earliest reliable completed check artifact timestamp, not the shell command launch instant."
+    },
+    "runCommandWindow": {
+      "approximate": false,
+      "startTimestampUtc": "2026-06-03T03:40:38Z",
+      "startTimestampLocal": "2026-06-02T22:40:38-0500",
+      "endTimestampUtc": "2026-06-03T03:40:53Z",
+      "endTimestampLocal": "2026-06-02T22:40:53-0500",
+      "elapsedSeconds": 15
+    },
+    "result": {
+      "status": "converged",
+      "exitCode": 0,
+      "nodeCount": 37,
+      "compileArtifactCount": 93,
+      "restOperationCount": 15,
+      "ruleCoverage": {
+        "translatedRules": 0,
+        "totalRules": 8,
+        "note": "Structured ports, returns, events, routes, and policy metadata were generated; prose command rules were reported as untranslated."
+      }
+    }
+  },
+  "generatedApplication": {
+    "stack": "Java Spring Boot REST API",
+    "fileCount": 88,
+    "javaMainFileCount": 68,
+    "javaTestFileCount": 15,
+    "javaLineCount": 12715,
+    "routes": 15
+  },
+  "verification": {
+    "dockerOnlyRuntimeProof": true,
+    "commands": [
+      "APP_PORT=18080 docker compose config",
+      "APP_PORT=18080 docker compose build --no-cache",
+      "APP_PORT=18080 docker compose up -d --force-recreate",
+      "curl http://127.0.0.1:18080/healthz",
+      "bash evidence-equivalent endpoint proof script against Docker-started service"
+    ],
+    "results": {
+      "composeConfigExitCode": 0,
+      "dockerBuildWithTestsExitCode": 0,
+      "dockerUpExitCode": 0,
+      "healthStatus": "UP",
+      "endpointProofExitCode": 0,
+      "endpointStatuses": {
+        "POST /api/plans": 201,
+        "POST /api/features": 201,
+        "POST /api/plans/{planId}/features": 201,
+        "POST /api/subscriptions": 201,
+        "POST /api/usage": 201,
+        "POST /api/entitlements/check": 200,
+        "GET /api/plans/{planId}": 200,
+        "GET /api/plans/{planId}/entitlements": 200,
+        "GET /api/accounts/{accountId}/subscriptions": 200,
+        "GET /api/subscriptions/{subscriptionId}/usage": 200
+      }
+    },
+    "evidencePaths": [
+      "evidence/compose-config.txt",
+      "evidence/docker-endpoint-proof.txt",
+      "evidence/health.json",
+      "evidence/endpoints/"
+    ]
+  },
+  "endToEndTaskWallClock": {
+    "approximate": true,
+    "startTimestampUtc": "2026-06-03T03:35:43Z",
+    "startTimestampLocal": "2026-06-02T22:35:43-0500",
+    "endTimestampUtc": "2026-06-03T03:50:03Z",
+    "endTimestampLocal": "2026-06-02T22:50:03-0500",
+    "elapsedSecondsApprox": 860,
+    "phasesIncluded": [
+      "required documentation review",
+      "private spec authoring",
+      "spec validation and compile preview",
+      "generation run",
+      "standalone repo assembly",
+      "public no-branding cleanup",
+      "Docker build with tests",
+      "Docker service startup",
+      "Docker-started endpoint proof",
+      "README and metrics handoff"
+    ],
+    "note": "Start time is the earliest reliable private spec artifact timestamp, not the first assistant message timestamp."
+  }
+}
